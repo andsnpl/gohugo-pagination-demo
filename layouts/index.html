@@ -1,0 +1,12 @@
+{{/* layouts/index.html */}}
+
+{{ with (index (where .Sections "Section" "comics") 0) }}
+  {{ .Sections }} {{/* debug */}}
+  {{ $paginator := .Paginate .Sections }}
+  {{ range .Paginator.Pages }}
+  <div>
+    {{ .Title }}
+  </div>
+  {{ end }}
+{{ end }}
+

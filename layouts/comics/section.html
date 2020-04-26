@@ -1,0 +1,13 @@
+{{/* layouts/comics/section.html */}}
+
+{{ $all_comics := slice }}
+{{ range .Sections }}
+  {{ $all_comics = $all_comics | append .Pages }}
+{{ end }}
+{{ $all_comics }} {{/* debug */}}
+{{ $paginator := .Paginate $all_comics }}
+{{ range .Paginator.Pages }}
+<div>
+  {{ .Title }}
+</div>
+{{ end }}
